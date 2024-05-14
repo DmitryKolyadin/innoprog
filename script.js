@@ -29,6 +29,7 @@ document.getElementById('weatherForm').addEventListener('submit', function(event
                         const description = document.getElementById('description');
                         const humidity = document.getElementById('humidity');
                         const windSpeed = document.getElementById('windSpeed');
+                        const backgroundAnimation = document.getElementById('backgroundAnimation');
 
                         cityName.textContent = `${weatherData.name}, ${weatherData.sys.country}`;
                         temperature.textContent = `Температура: ${weatherData.main.temp}°C`;
@@ -41,6 +42,10 @@ document.getElementById('weatherForm').addEventListener('submit', function(event
                         weatherIcon.classList.add('fas');
                         weatherIcon.classList.add(mapIconCodeToClass(iconCode));
 
+                        // Установить анимацию фона в зависимости от погодного условия
+                        backgroundAnimation.className = '';
+                        backgroundAnimation.classList.add('background-animation');
+                        backgroundAnimation.classList.add(mapIconCodeToBackground(iconCode));
                     })
                     .catch(error => console.error('Ошибка при получении данных о погоде:', error));
             } else {
@@ -81,5 +86,39 @@ function mapIconCodeToClass(iconCode) {
             return 'fa-smog';
         default:
             return 'fa-question';
+    }
+}
+
+function mapIconCodeToBackground(iconCode) {
+    switch (iconCode) {
+        case '01d':
+            return 'sunny';
+        case '01n':
+            return 'night';
+        case '02d':
+        case '02n':
+            return 'cloudy';
+        case '03d':
+        case '03n':
+        case '04d':
+        case '04n':
+            return 'overcast';
+        case '09d':
+        case '09n':
+            return 'showers';
+        case '10d':
+        case '10n':
+            return 'rain';
+        case '11d':
+        case '11n':
+            return 'storm';
+        case '13d':
+        case '13n':
+            return 'snow';
+        case '50d':
+        case '50n':
+            return 'fog';
+        default:
+            return 'default';
     }
 }

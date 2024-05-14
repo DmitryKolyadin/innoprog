@@ -8,6 +8,28 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    position: relative;
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    animation: fadeInBackground 1s ease-in-out;
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .weather-app {
@@ -89,4 +111,63 @@ button:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+/* Дополнительные стили для анимаций погоды */
+
+.background-animation.sunny {
+    background-image: url('images/sunny.jpg');
+}
+
+.background-animation.night {
+    background-image: url('images/night.jpg');
+}
+
+.background-animation.cloudy {
+    background-image: url('images/cloudy.jpg');
+}
+
+.background-animation.overcast {
+    background-image: url('images/overcast.jpg');
+}
+
+.background-animation.showers {
+    background-image: url('images/showers.jpg');
+    animation: rain 1s infinite linear;
+}
+
+.background-animation.rain {
+    background-image: url('images/rain.jpg');
+    animation: rain 1s infinite linear;
+}
+
+.background-animation.storm {
+    background-image: url('images/storm.jpg');
+    animation: storm 1s infinite linear;
+}
+
+.background-animation.snow {
+    background-image: url('images/snow.jpg');
+    animation: snow 1s infinite linear;
+}
+
+.background-animation.fog {
+    background-image: url('images/fog.jpg');
+}
+
+@keyframes rain {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+@keyframes storm {
+    0% { background-position: 0 0; }
+    50% { background-position: 0 50%; }
+    100% { background-position: 0 100%; }
+}
+
+@keyframes snow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
 }
