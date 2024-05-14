@@ -1,35 +1,53 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #00c6ff, #0072ff);
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
     color: white;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .weather-app {
     background: rgba(0, 0, 0, 0.6);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
 }
 
-input {
-    padding: 10px;
-    width: 300px;
-    border-radius: 4px;
+.weather-app h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 30px;
     border: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1px solid #007BFF;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 15px 20px;
     border: none;
     background-color: #007BFF;
     color: white;
-    border-radius: 4px;
+    border-radius: 30px;
     cursor: pointer;
+    width: 100%;
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -43,11 +61,13 @@ button:hover {
 
 .weather-result i {
     margin-bottom: 20px;
+    font-size: 3em;
 }
 
 .weather-result h2,
 .weather-result p {
     margin: 10px 0;
+    font-size: 1.2em;
     animation: fadeInUp 1s ease-in-out;
 }
 

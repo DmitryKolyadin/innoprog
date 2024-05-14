@@ -2,8 +2,14 @@ document.getElementById('weatherForm').addEventListener('submit', function(event
     event.preventDefault();
 
     const city = document.getElementById('cityInput').value;
-    const apiKey = '3a188b2b6c89afcddd82f506c628baba';
+    const apiKey = document.getElementById('apiKeyInput').value;
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
+    // Проверка на наличие API ключа
+    if (!apiKey) {
+        alert('Пожалуйста, введите ваш API ключ.');
+        return;
+    }
 
     // Получить широту и долготу по названию города
     fetch(`${proxyUrl}http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)

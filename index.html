@@ -14,15 +14,16 @@
             <h1 class="text-center mb-4">Погода в городе</h1>
             <form id="weatherForm" class="form-inline justify-content-center mb-4">
                 <input type="text" id="cityInput" class="form-control mr-2" placeholder="Введите название города" required>
+                <input type="text" id="apiKeyInput" class="form-control mr-2" placeholder="Введите ваш API ключ" required>
                 <button type="submit" class="btn btn-primary">Получить погоду</button>
             </form>
             <div id="weatherResult" class="weather-result text-center">
                 <i id="weatherIcon" class="fas fa-cloud-sun fa-3x"></i>
-                <h2 id="cityName"></h2>
-                <p id="temperature"></p>
-                <p id="description"></p>
-                <p id="humidity"></p>
-                <p id="windSpeed"></p>
+                <h2 id="cityName" class="mt-3"></h2>
+                <p id="temperature" class="mt-3"></p>
+                <p id="description" class="mt-3"></p>
+                <p id="humidity" class="mt-3"></p>
+                <p id="windSpeed" class="mt-3"></p>
             </div>
         </div>
     </div>
