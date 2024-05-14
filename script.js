@@ -3,16 +3,17 @@ document.getElementById('weatherForm').addEventListener('submit', function(event
 
     const city = document.getElementById('cityInput').value;
     const apiKey = '3a188b2b6c89afcddd82f506c628baba';
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     // Получить широту и долготу по названию города
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
+    fetch(`${proxyUrl}http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => {
             if (data.length > 0) {
                 const { lat, lon } = data[0];
 
                 // Получить данные о погоде по широте и долготе
-                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=${apiKey}`)
+                fetch(`${proxyUrl}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=${apiKey}`)
                     .then(response => response.json())
                     .then(weatherData => {
                         const weatherResult = document.getElementById('weatherResult');
